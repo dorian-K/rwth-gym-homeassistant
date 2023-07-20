@@ -67,7 +67,7 @@ def get_pics_from_fs():
 def make_synthetic_digit(character):
     img = Image.new('L', (22, 30), color="white")
     d = ImageDraw.Draw(img)
-    font = ImageFont.truetype("OpenSans-Regular.ttf", 38)
+    font = ImageFont.truetype(os.path.dirname(__file__) + "/OpenSans-Regular.ttf", 38)
     d.text((0, -12), character, fill=0, font=font)
     img = img.resize((22 * 4, 30 * 4), resample=Image.NEAREST)
     return img
