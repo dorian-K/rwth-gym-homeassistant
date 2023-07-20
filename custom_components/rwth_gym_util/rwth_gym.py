@@ -67,8 +67,8 @@ def get_pics_from_fs():
 def make_synthetic_digit(character):
     img = Image.new('L', (22, 30), color="white")
     d = ImageDraw.Draw(img)
-    font = ImageFont.truetype("arial.ttf", 40)
-    d.text((0, -7), character, fill=0, font=font)
+    font = ImageFont.truetype("OpenSans-Regular.ttf", 38)
+    d.text((0, -12), character, fill=0, font=font)
     img = img.resize((22 * 4, 30 * 4), resample=Image.NEAREST)
     return img
 
@@ -182,10 +182,10 @@ if __name__ == "__main__":
     async def test():
         num = await get_auslastung_number()
         print(num)
+        reconstructed_digits = await get_auslastung_and_match_numbers()
+        print("Pixel-wise difference:", [lol[2] for lol in reconstructed_digits])
+        # print_list_of_images([lol[1] for lol in reconstructed_digits])
     
     import asyncio
     asyncio.run(test())
-    #reconstructed_digits = get_auslastung_and_match_numbers()
-    #print("".join([str(digit[0]) for digit in reconstructed_digits]))
-    #print("Pixel-wise difference:", [lol[2] for lol in reconstructed_digits])
-    # print_list_of_images([lol[1] for lol in reconstructed_digits])
+    
