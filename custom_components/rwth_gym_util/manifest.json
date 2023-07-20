@@ -1,18 +1,18 @@
 {
-  "domain": "fitx_util",
-  "name": "FitX Utilization",
+  "domain": "rwth_gym_util",
+  "name": "RWTH Gym Utilization",
   "codeowners": [
     "@dorian-K"
   ],
-  "config_flow": true,
+  "config_flow": false,
   "dependencies": [],
   "documentation": "https://github.com/dorian-K/homeassistant-fitx-utilization",
   "homekit": {},
   "integration_type": "device",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/dorian-K/homeassistant-fitx-utilization/issues",
-  "requirements": [],
+  "requirements": ["pillow"],
   "ssdp": [],
-  "version": "1.0.2",
+  "version": "1.0.0",
   "zeroconf": []
 }

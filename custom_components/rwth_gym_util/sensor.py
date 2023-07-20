@@ -82,14 +82,7 @@ class GymUtilizationSensor(CoordinatorEntity, SensorEntity):
             _LOGGER.debug("native value not found in coordinator!")
             return None
 
-        for item in self.coordinator.data["utilization"]:
-            if not item["current"]:
-                continue
-
-            # _LOGGER.debug("returning native value %d", item["percentage"])
-            return item["percentage"]
-
-        return None
+        return self.coordinator.data["utilization"]
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
