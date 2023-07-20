@@ -32,7 +32,7 @@ async def async_setup_entry(
             "rwth_gym",
             "utilization",
             "Gym Utilization",
-            PERCENTAGE,
+            "",
             None,
             None,
             SensorStateClass.MEASUREMENT,
