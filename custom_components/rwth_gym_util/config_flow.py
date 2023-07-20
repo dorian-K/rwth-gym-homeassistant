@@ -9,4 +9,4 @@ async def _async_has_devices(hass: HomeAssistant) -> bool:
 
 
 config_entry_flow.register_discovery_flow(
-    DOMAIN, "NEW_NAME", _async_has_devices)
+    DOMAIN, "RWTH Gym", _async_has_devices)
