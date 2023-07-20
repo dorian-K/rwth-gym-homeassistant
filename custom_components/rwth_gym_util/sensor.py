@@ -4,7 +4,7 @@ from typing import Any
 from .const import DATA_COORDINATOR, DOMAIN
 from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ID, PERCENTAGE
+from homeassistant.const import PERCENTAGE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -24,13 +24,12 @@ async def async_setup_entry(
     coordinator: DataUpdateCoordinator = hass.data[DOMAIN][entry.entry_id][
         DATA_COORDINATOR
     ]
-    unique_id = entry.data[CONF_ID]
     entities = []
 
     entities.append(
         GymUtilizationSensor(
             coordinator,
-            unique_id,
+            "rwth_gym",
             "utilization",
             "Gym Utilization",
             PERCENTAGE,
