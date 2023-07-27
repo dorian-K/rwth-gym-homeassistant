@@ -40,11 +40,11 @@ async def get_uptodate_pic():
 
 def split_img(img):
     parts = []
-    for i in range(0, img.width, 22):
+    for i in range(0, round(img.width / 22) * 22, 22):
         # print(i)
         parts.append(
-            img.crop((i, 0, i + 22, img.height))
-            .resize((22 * 4, 30 * 4), resample=Image.NEAREST)
+            img.crop((i, 0, min(i + 22, img.width), img.height))
+            .resize((22, 30), resample=Image.NEAREST)
             .convert(mode="L")
         )
     return parts
@@ -69,7 +69,7 @@ def make_synthetic_digit(character):
     d = ImageDraw.Draw(img)
     font = ImageFont.truetype(os.path.dirname(__file__) + "/OpenSans-Regular.ttf", 38)
     d.text((0, -12), character, fill=0, font=font)
-    img = img.resize((22 * 4, 30 * 4), resample=Image.NEAREST)
+    #img = img.resize((22 * 4, 30 * 4), resample=Image.NEAREST)
     return img
 
 
